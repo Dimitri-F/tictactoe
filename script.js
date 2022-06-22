@@ -22,46 +22,46 @@ let state = {
     c9: 0
 };
 
-
+//function remise à zero qu'on appellera à chaque fin de partie
 const reset = () => {
     state.joueurEncours = 1;
-    state.c1 = 0; 
-    state.c2 = 0; 
-    state.c3 = 0; 
-    state.c4 = 0; 
-    state.c5 = 0; 
-    state.c6 = 0; 
-    state.c7 = 0; 
-    state.c8 = 0; 
+    state.c1 = 0;
+    state.c2 = 0;
+    state.c3 = 0;
+    state.c4 = 0;
+    state.c5 = 0;
+    state.c6 = 0;
+    state.c7 = 0;
+    state.c8 = 0;
     state.c9 = 0;
 }
 
 const verifierVictoire = () => {
     if (
         //on vérifie chaque cas de victoire
-        (state.c1 === state.c2 && state.c2 === state.c3 && state.c1 > 0) ||
-        (state.c1 === state.c4 && state.c4 === state.c7 && state.c1 > 0) ||
-        (state.c1 === state.c5 && state.c5 === state.c9 && state.c1 > 0) ||
-        (state.c4 === state.c5 && state.c5 === state.c6 && state.c4 > 0) ||
-        (state.c7 === state.c8 && state.c8 === state.c9 && state.c7 > 0) ||
-        (state.c2 === state.c5 && state.c5 === state.c8 && state.c2 > 0) ||
-        (state.c3 === state.c6 && state.c6 === state.c9 && state.c3 > 0) ||
-        (state.c3 === state.c5 && state.c5 === state.c7 && state.c3 > 0) 
+        (state.c1 == state.c2 && state.c2 == state.c3 && state.c1 > 0) ||
+        (state.c1 == state.c4 && state.c4 == state.c7 && state.c1 > 0) ||
+        (state.c1 == state.c5 && state.c5 == state.c9 && state.c1 > 0) ||
+        (state.c4 == state.c5 && state.c5 == state.c6 && state.c4 > 0) ||
+        (state.c7 == state.c8 && state.c8 == state.c9 && state.c7 > 0) ||
+        (state.c2 == state.c5 && state.c5 == state.c8 && state.c2 > 0) ||
+        (state.c3 == state.c6 && state.c6 == state.c9 && state.c3 > 0) ||
+        (state.c3 == state.c5 && state.c5 == state.c7 && state.c3 > 0)
 
-    ){
+    ) {
         //s'il y a victoire la fonction retourne "true"
         return true
     } else if (
         // en cas de non victoire on vérifie si toutes les cases sont jouées
-        state.c1 !== 0 &&
-        state.c2 !== 0 &&
-        state.c3 !== 0 &&
-        state.c4 !== 0 &&
-        state.c5 !== 0 &&
-        state.c6 !== 0 &&
-        state.c7 !== 0 &&
-        state.c8 !== 0 &&
-        state.c9 !== 0 
+        state.c1 != 0 &&
+        state.c2 != 0 &&
+        state.c3 != 0 &&
+        state.c4 != 0 &&
+        state.c5 != 0 &&
+        state.c6 != 0 &&
+        state.c7 != 0 &&
+        state.c8 != 0 &&
+        state.c9 != 0
     ) {
         //si oui, il s'agit d'un match nul, la fonction retourne "null"
         return null
@@ -84,16 +84,19 @@ const jouerCase = (e) => {
     //on vérifie la victoire
     if (victoire === true) {
         alert("Le gagnant est le joueur " + state.joueurEncours)
-        if (state.joueurEncours === 1) {
+        if (state.joueurEncours == 1) {
+            //on incrémente le score du joueur 1
             state.scoreJ1++;
             score1.textContent = state.scoreJ1;
         } else {
+            //on incrémente le score du joueur 1
             state.scoreJ2++;
             score2.textContent = state.scoreJ2;
         }
         reset();
+        //on vides les cases à l'écran
         cases.forEach((c) => (c.textContent = ""));
-    } else if ( victoire === null) {
+    } else if (victoire === null) {
         alert("Match nul");
         state.matchNuls++;
         scoreNul.textContent = state.matchNuls;
