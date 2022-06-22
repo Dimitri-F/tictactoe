@@ -4,6 +4,7 @@ let joueur = document.getElementById("joueur")
 let score1 = document.getElementById("score1")
 let score2 = document.getElementById("score2")
 let scoreNul = document.getElementById("scoreNul")
+let resultat = document.getElementById("resultat")
 
 //on initialise un objet avec les infos dont on a besoin
 let state = {
@@ -94,22 +95,28 @@ const jouerCase = (e) => {
             score2.textContent = state.scoreJ2;
         }
         reset();
-        //on vides les cases à l'écran
+        //on vide les cases à l'écran
         cases.forEach((c) => (c.textContent = ""));
     } else if (victoire === null) {
         alert("Match nul");
+        //on incrémente le total de match nul
         state.matchNuls++;
         scoreNul.textContent = state.matchNuls;
         joueur.textContent = "1";
         reset();
+        //on vide les cases à l'écran
         cases.forEach((c) => (c.textContent = ""));
     } else if (victoire === false) {
         if (state.joueurEncours === 1) {
+            //on inscrit un X dans la case jouée par le joueur 1
             e.target.textContent = "X";
+            //on indique que c'est au joueur 2 de jouer
             state.joueurEncours = 2;
             joueur.textContent = "2"
         } else {
+            //on inscrit un O dans la case jouée par le joueur 1
             e.target.textContent = "O";
+            //on indique que c'est au joueur 1 de jouer
             state.joueurEncours = 1;
             joueur.textContent = "1"
         }
