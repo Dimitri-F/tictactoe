@@ -23,7 +23,7 @@ let state = {
     c9: 0
 };
 
-//function remise à zero qu'on appellera à chaque fin de partie
+//fonction remise à zero qu'on appellera à chaque fin de partie
 const reset = () => {
     state.joueurEncours = 1;
     state.c1 = 0;
@@ -50,7 +50,7 @@ const verifierVictoire = () => {
         (state.c3 === state.c5 && state.c5 === state.c7 && state.c3 > 0)
 
     ) {
-        //s'il y a v=ictoire la fonction retourne "true"
+        //s'il y a victoire la fonction retourne "true"
         return true
     } else if (
         // en cas de non victoire on vérifie si toutes les cases sont jouées
@@ -90,7 +90,7 @@ const jouerCase = (e) => {
             state.scoreJ1++;
             score1.textContent = state.scoreJ1;
         } else {
-            //on incrémente le score du joueur 1
+            //on incrémente le score du joueur 2
             state.scoreJ2++;
             score2.textContent = state.scoreJ2;
         }
@@ -114,7 +114,7 @@ const jouerCase = (e) => {
             state.joueurEncours = 2;
             joueur.textContent = "2"
         } else {
-            //on inscrit un O dans la case jouée par le joueur 1
+            //on inscrit un O dans la case jouée par le joueur 2
             e.target.textContent = "O";
             //on indique que c'est au joueur 1 de jouer
             state.joueurEncours = 1;
