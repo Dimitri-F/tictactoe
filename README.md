@@ -23,8 +23,8 @@ Aperçu du jeu Tic Tac Toe
 - HTML
 - CSS
 - JavaScript
-- Auteur
-- Ce projet a été développé par Dimitri F.
+
+Ce projet a été développé par Dimitri F.
 
 N'hésitez pas à contribuer à ce projet en ouvrant une demande de pull si vous avez des améliorations ou des corrections à apporter.
 
