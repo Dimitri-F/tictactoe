@@ -16,8 +16,7 @@ Clonez ou téléchargez ce dépôt sur votre machine.
 Ouvrez le fichier index.html dans votre navigateur web.
 Jouez au Morpion en cliquant sur les cases de la grille.
 Les résultats (victoires et matchs nuls) ainsi que les scores des joueurs sont affichés dans la section "Score".
-Aperçu
-Aperçu du jeu Tic Tac Toe
+
 
 ## Technologies utilisées
 - HTML
