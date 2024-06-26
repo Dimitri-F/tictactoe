@@ -53,3 +53,50 @@ p {
 p:first-of-type {
     color: rgb(52, 102, 248);
 }
+
+/* Media Queries */
+
+/* Tablettes */
+@media (max-device-width: 768px) {
+    main {
+        width: 80%;
+    }
+
+    #grille {
+        grid-template-columns: repeat(3, 4rem);
+        grid-template-rows: repeat(3, 4rem);
+    }
+
+    .case {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobiles */
+@media (max-device-width: 480px) {
+    main {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #grille {
+        grid-template-columns: repeat(3, 3rem);
+        grid-template-rows: repeat(3, 3rem);
+    }
+
+    .case {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
