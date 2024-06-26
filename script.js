@@ -4,7 +4,10 @@ let joueur = document.getElementById("joueur")
 let score1 = document.getElementById("score1")
 let score2 = document.getElementById("score2")
 let scoreNul = document.getElementById("scoreNul")
-let resultat = document.getElementById("resultat")
+let modal = document.getElementById("modal")
+let modalMessage = document.getElementById("modal-message")
+let closeModal = document.getElementsByClassName("close")[0]
+let modalButton = document.getElementById("modal-button")
 
 //on initialise un objet avec les infos dont on a besoin
 let state = {
@@ -35,6 +38,17 @@ const reset = () => {
     state.c7 = 0;
     state.c8 = 0;
     state.c9 = 0;
+}
+
+// fonction pour afficher la modal
+const showModal = (message) => {
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+}
+
+// fonction pour fermer la modal
+const hideModal = () => {
+    modal.style.display = "none";
 }
 
 const verifierVictoire = () => {
@@ -72,51 +86,52 @@ const verifierVictoire = () => {
     }
 }
 
+// fonction pour jouer une case
 const jouerCase = (e) => {
-    //on récupère l'id de la case
+    // on récupère l'id de la case
     let idCase = e.target.id;
-    //on vérifie si la case a déja été jouée
+    // on vérifie si la case a déjà été jouée
     if (state[idCase] !== 0) return;
-    //on initialise l'id de la case avec la valeur de la propriété "joueur en cours"
-    //cela permet d'indiquer que la case est jouée
+    // on initialise l'id de la case avec la valeur de la propriété "joueur en cours"
+    // cela permet d'indiquer que la case est jouée
     state[idCase] = state.joueurEncours;
-    //on initialise une variable "victoire" qui nous permettra de tester la victoire après chaque mouvement de joueur
+    // on initialise une variable "victoire" qui nous permettra de tester la victoire après chaque mouvement de joueur
     let victoire = verifierVictoire();
-    //on vérifie la victoire
+    // on vérifie la victoire
     if (victoire === true) {
-        alert("Le gagnant est le joueur " + state.joueurEncours)
+        showModal("Le gagnant est le joueur " + state.joueurEncours);
         if (state.joueurEncours === 1) {
-            //on incrémente le score du joueur 1
+            // on incrémente le score du joueur 1
             state.scoreJ1++;
             score1.textContent = state.scoreJ1;
         } else {
-            //on incrémente le score du joueur 2
+            // on incrémente le score du joueur 2
             state.scoreJ2++;
             score2.textContent = state.scoreJ2;
         }
         reset();
-        //on vide les cases à l'écran
+        // on vide les cases à l'écran
         cases.forEach((c) => (c.textContent = ""));
     } else if (victoire === null) {
-        alert("Match nul");
-        //on incrémente le total de match nul
+        showModal("Match nul");
+        // on incrémente le total de matchs nuls
         state.matchNuls++;
         scoreNul.textContent = state.matchNuls;
         joueur.textContent = "1";
         reset();
-        //on vide les cases à l'écran
+        // on vide les cases à l'écran
         cases.forEach((c) => (c.textContent = ""));
     } else if (victoire === false) {
         if (state.joueurEncours === 1) {
-            //on inscrit un X dans la case jouée par le joueur 1
+            // on inscrit un X dans la case jouée par le joueur 1
             e.target.textContent = "X";
-            //on indique que c'est au joueur 2 de jouer
+            // on indique que c'est au joueur 2 de jouer
             state.joueurEncours = 2;
             joueur.textContent = "2"
         } else {
-            //on inscrit un O dans la case jouée par le joueur 2
+            // on inscrit un O dans la case jouée par le joueur 2
             e.target.textContent = "O";
-            //on indique que c'est au joueur 1 de jouer
+            // on indique que c'est au joueur 1 de jouer
             state.joueurEncours = 1;
             joueur.textContent = "1"
         }
@@ -127,3 +142,14 @@ const jouerCase = (e) => {
 cases.forEach((el) => {
     el.addEventListener('click', jouerCase);
 })
+
+// on ajoute un écouteur d'événement pour fermer la modal
+closeModal.onclick = hideModal;
+modalButton.onclick = hideModal;
+
+// on ferme la modal en cliquant en dehors de celle-ci
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
