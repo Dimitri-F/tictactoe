@@ -22,6 +22,14 @@ body {
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
+#form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+}
+
 #player-form label {
     margin: 1rem;
     font-size: 1.2rem;
@@ -37,6 +45,7 @@ body {
 
 #player-form button, #modal-button {
     padding: 0.5rem 1rem;
+    margin: 0 auto;
     font-size: 1rem;
     background-color: rgb(52, 102, 248);
     color: white;
@@ -46,7 +55,8 @@ body {
 }
 
 #player-form button:hover, #modal-button:hover {
-    background-color: rgb(52, 85, 221);
+    background-color: white ;
+    color: rgb(52, 85, 221);
 }
 
 main {
@@ -58,6 +68,7 @@ main {
     margin: 2rem auto;
     padding: 2rem;
     width: 60%;
+    min-width: 330px;
     background-color: lightgrey;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -71,7 +82,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 5rem);
     grid-template-rows: repeat(3, 5rem);
-    gap: 1rem;
+    grid-gap: 1rem;
     margin: 3rem auto;
 }
 
@@ -115,7 +126,7 @@ p:first-of-type {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #dddddd;
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
@@ -165,6 +176,8 @@ p:first-of-type {
     #grille {
         grid-template-columns: repeat(3, 4rem);
         grid-template-rows: repeat(3, 4rem);
+        grid-gap: .5rem;
+        margin: 1.5rem auto;
     }
 
     .case {
@@ -190,6 +203,8 @@ p:first-of-type {
     #grille {
         grid-template-columns: repeat(3, 3rem);
         grid-template-rows: repeat(3, 3rem);
+        grid-gap: .25rem;
+        margin: 1rem auto;
     }
 
     .case {
