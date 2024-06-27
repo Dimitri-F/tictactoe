@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Morpion</title>
 </head>
 
 <body>
-    <main>
+
+    <div id="player-form">
+        <h1>Entrez les noms des joueurs</h1>
+        <form id="form">
+            <div class="form-group">
+                <label for="player1">Joueur 1:</label>
+                <input type="text" id="player1" name="player1" required>
+            </div>
+            <div class="form-group">
+                <label for="player2">Joueur 2:</label>
+                <input type="text" id="player2" name="player2" required>
+            </div>
+            <button type="submit">Commencer le jeu</button>
+        </form>
+    </div>
+
+    <main id="game" style="display:none;">
         <h1>Morpion</h1>
         <div id="grille">
             <div id="c1" class="case"></div>
@@ -24,11 +40,12 @@
             <div id="c9" class="case"></div>
         </div>
         <div id="score">
-            <p>C'est au tour du joueur <span id="joueur">1</span></p>
-            <p>Score joueur 1 : <span id="score1">0</span></p>
-            <p>Score joueur 2 : <span id="score2">0</span></p>
+            <p>C'est au tour de <span id="joueur">1</span></p>
+            <p>Score <span id="player1-name">Joueur 1</span> : <span id="score1">0</span></p>
+            <p>Score <span id="player2-name">Joueur 2</span> : <span id="score2">0</span></p>
             <p>Matchs nuls : <span id="scoreNul">0</span></p>
         </div>
+        <button id="back-button">Retour</button>
     </main>
 
     <!-- Modal -->
@@ -40,7 +57,7 @@
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
